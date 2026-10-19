@@ -32,9 +32,9 @@ public class payrollCaluculator {
                 %s:
                 *===== Today's work log ======*
                 employees name: %s
-                current hourly rate: %f
-                completed work hour's: %f
-                %s current gross pay: %f
+                current hourly rate: %f.2
+                completed work hour's: %f.2
+                %s current gross pay: %f.2
                 """,
                 corpName,name,hourlyPay,workHours,name,grossPay);
     }
