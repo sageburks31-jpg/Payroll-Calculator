@@ -3,68 +3,41 @@ package com.pluralsight;
 import java.util.*;
 
 public class payrollCaluculator {
-    static List<Double> inputList= new ArrayList<>();
-    static List<String> oprSymbollist=new ArrayList<>();
-    static int symbolKey=0;
-    static double sum=0.0;
-    static String nameStorage=" ";
+
+    static double hourlyPay=0.0;
+    static double workHours=0.0;
+    static String name=" ";
+    static String corpName=" ";
+    static double grossPay=0.0;
 
     public static void main(String[] args) {
-
-        oprSymbollist.add(" + ");
-        oprSymbollist.add(" - ");
-        oprSymbollist.add(" * ");
-        oprSymbollist.add(" / ");
-        oprSymbollist.add(" % ");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("what your name? :");
-        nameStorage = scanner.nextLine();
+        System.out.print("your companies name here ->: ");
+        corpName=scanner.nextLine();
+        System.out.print("your name here ->: ");
+        name=scanner.nextLine();
+        System.out.print("your companies work hours here ->: ");
+        workHours=scanner.nextDouble();
+        System.out.print("your hourly pay here ->: ");
+        hourlyPay=scanner.nextDouble();
+        grossPay=hourlyPay*workHours;
 
-        System.out.println("What operation do you want to run? ");
-        System.out.println("(A)dd");
-        System.out.println("(S)ubtract");
-        System.out.println("(M)ultiply");
-        System.out.println("(D)ivide");
-        System.out.println("(R)emainer");
-        System.out.print("Please select an option: ");
-
-        String command2 = scanner.nextLine();
-        String lowCommand = command2.toLowerCase();
-
-        setOperat(lowCommand);
-        inputValue(scanner);
+        currentReport();
     }
 
-    public static void setOperat(String lowCommand) {
-        switch (lowCommand) {
-            case "a" -> symbolKey = 0;
-            case "s" -> symbolKey = 1;
-            case "m" -> symbolKey = 2;
-            case "d" -> symbolKey = 3;
-            case "r" -> symbolKey = 4;
-        }
+    public static void currentReport(){
+
+        System.out.printf("""
+                %s:
+                *===== Today's work log ======*
+                employees name: %s
+                current hourly rate: %f
+                completed work hour's: %f
+                %s current gross pay: %f
+                """,
+                corpName,name,hourlyPay,workHours,name,grossPay);
     }
 
-    public static void inputValue(Scanner scanner) {
-        System.out.print("Enter 1st number: ");
-        inputList.add(scanner.nextDouble());
 
-        System.out.print("Enter 2nd number: ");
-        inputList.add(scanner.nextDouble());
-        String opr = oprSymbollist.get(symbolKey);
-
-        switch (symbolKey){
-            case (0)-> sum = inputList.get(0) + inputList.get(1);
-            case (1)-> sum = inputList.get(0) - inputList.get(1);
-            case (2)-> sum = inputList.get(0) * inputList.get(1);
-            case (3)-> sum = inputList.get(0) / inputList.get(1);
-            case (4)-> sum = inputList.get(0) % inputList.get(1);
-        }
-
-        System.out.print(inputList.get(0));
-        System.out.print(opr);
-        System.out.print(inputList.get(1));
-        System.out.print(" = "+sum);
-    }
 }

@@ -9,7 +9,7 @@ public class payoutCalculator {
     static int symbolKey=0;
     static double sum=0.0;
 
-    public static void main(String[] args) {
+    public static void main() {//String[] args
 
         oprSymbollist.add(" + ");
         oprSymbollist.add(" - ");
