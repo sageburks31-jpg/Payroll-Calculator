@@ -15,14 +15,17 @@ public class payrollCaluculator {
 
         System.out.print("your companies name here ->: ");
         corpName=scanner.nextLine();
+
         System.out.print("your name here ->: ");
         name=scanner.nextLine();
+
         System.out.print("your companies work hours here ->: ");
         workHours=scanner.nextDouble();
+
         System.out.print("your hourly pay here ->: ");
         hourlyPay=scanner.nextDouble();
-        grossPay=hourlyPay*workHours;
 
+        grossPay=hourlyPay*workHours;
         currentReport();
     }
 
@@ -38,6 +41,5 @@ public class payrollCaluculator {
                 """,
                 corpName,name,hourlyPay,workHours,name,grossPay);
     }
-
 
 }
